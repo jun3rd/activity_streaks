@@ -10,5 +10,6 @@
     __GOAL: Encourage maintaining streaks of productivity__
     - graph activity on an calendar to show streaks maintained
     - graph streak on a chart with different views: (1) daily, (2) weekly, (3) monthly, (4) yearly
+    - create graphs for both terminal view and webpage view
 
 
