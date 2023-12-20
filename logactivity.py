@@ -17,16 +17,34 @@ def readlog():
     f = open(currentfile, "r")
     print(f.read())
 
-def python_logstart():
+def activityStreaks_logstart():
     x = datetime.datetime.now()
     x = str(x)
     f = open(currentfile, "a")
-    f.write("START\n")
+    f.write("START Activity Streaks\n")
     f.write(x)
     f.write("\n")
     f.close()
 
-def python_logstop():
+def valueInvesting_logstart():
+    x = datetime.datetime.now()
+    x = str(x)
+    f = open(currentfile, "a")
+    f.write("START Value Investing\n")
+    f.write(x)
+    f.write("\n")
+    f.close()
+
+def masterPython_logstart():
+    x = datetime.datetime.now()
+    x = str(x)
+    f = open(currentfile, "a")
+    f.write("START Master Python\n")
+    f.write(x)
+    f.write("\n")
+    f.close()
+
+def logstop():
     x = datetime.datetime.now()
     x = str(x)
     f = open(currentfile, "a")
@@ -34,4 +52,5 @@ def python_logstop():
     f.write(x)
     f.write("\n")
     f.close()
+
 
