@@ -3,27 +3,37 @@ import logactivity
 choice = 0
 filelength = ""
 last_line = ""
+START_ACTIVITY_STREAKS = "START Activity Streaks"
+START_VALUE_INVESTING = "START Value Investing"
+START_MASTER_PYTHON = "START Master Python"
+STOP = "STOP"
 
-def getLastLine():
+def getCurrentActivity():
     global last_line
     last_line = str.strip(logactivity.getLastLine())
-    print("last_line: ", last_line)
+    print("current activity: ", last_line)
 
 def showMenu():
     print("Activities:")
-    print("(1) START coding python: activity_streaks")
-    print("(2) STOP coding python: activity_streaks")
+    print("(1) START coding python: activity streaks")
+    print("(2) START coding python: value investing")
+    print("(3) START learning python: master python")
+    print("(4) STOP (any activity)")
 
 def selectActivity():
     global choice
     choice = input("choose activity?")
     choice = int(choice)
     global last_line
-    getLastLine()
-    if (choice == 1 and last_line == "STOP"):
-            logactivity.python_logstart()
-    elif (choice == 2 and last_line == "START"):
-            logactivity.python_logstop()
+    #getCurrentActivity()
+    if (choice == 1 and last_line == STOP):
+            logactivity.activityStreaks_logstart()
+    elif (choice == 2 and last_line == STOP):
+            logactivity.valueInvesting_logstart()
+    elif (choice == 3 and last_line == STOP):
+            logactivity.masterPython_logstart()
+    elif (choice == 4 and (last_line == START_ACTIVITY_STREAKS or last_line == START_VALUE_INVESTING or last_line == START_MASTER_PYTHON)):
+            logactivity.logstop()
     else:
         print("not an option")
 
@@ -32,7 +42,7 @@ def showActivities():
 
 
 showMenu()
-getLastLine()
+getCurrentActivity()
 selectActivity()
 showActivities()
 
