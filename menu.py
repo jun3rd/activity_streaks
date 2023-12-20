@@ -1,17 +1,12 @@
 import logactivity
 
 choice = 0
-filelength = 0
+filelength = ""
 last_line = ""
-
-def getFileLength():
-    global filelength
-    filelength = logactivity.getFileLength()
-    print("filelength: ", filelength)
 
 def getLastLine():
     global last_line
-    last_line = logactivity.getLastLine()
+    last_line = str.strip(logactivity.getLastLine())
     print("last_line: ", last_line)
 
 def showMenu():
@@ -24,6 +19,7 @@ def selectActivity():
     choice = input("choose activity?")
     choice = int(choice)
     global last_line
+    getLastLine()
     if (choice == 1 and last_line == "STOP"):
             logactivity.python_logstart()
     elif (choice == 2 and last_line == "START"):
@@ -34,22 +30,9 @@ def selectActivity():
 def showActivities():
     logactivity.readlog()
 
-def selectActivityTRY():
-    global choice
-    choice = input("choose activity?")
-    choice = int(choice)
-    global last_line
-    last_line = str(last_line)
-    print("last_line: ", last_line)
-    print("last_line type: ", type(last_line))
-    print("'STOP' type: ", type("STOP"))
-    print("last_line == STOP: ", last_line == 'STOP')
-    print("'WORD' == 'WORD': ", 'WORD' == 'WORD')
-
 
 showMenu()
-getFileLength()
 getLastLine()
-selectActivityTRY()
+selectActivity()
 showActivities()
 
